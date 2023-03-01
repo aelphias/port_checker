@@ -1,10 +1,12 @@
 # port_checker - 
 # An app to give available port in range of 2 numbers
-# 
+#  TODO put test test2 with pytest
+
 import socket
 import logging
-from fastapi import FastAPI
 from pathlib import Path
+import uvicorn
+from fastapi import FastAPI
 
 #creating a new directory called pythondirectory
 Path("./log").mkdir(parents=True, exist_ok=True)
@@ -19,11 +21,6 @@ END = 49160
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
                     filename=LOG_FILE_PATH,
                     encoding='utf-8', level=logging.DEBUG)
-
-# logging.debug('This message should go to the log file')
-# logging.info('So should this')
-# logging.warning('And this, too')
-# logging.error('And non-ASCII stuff, too, like Øresund and Malmö')
 
 # Create list
 # with integers within given range (49152 to 65535)
@@ -43,17 +40,14 @@ def tryPort(port):
     sock.close()
     return result
 
-
-if '__main__' == __name__:
+app = FastAPI()
+@app.get("/")
+async def root():
     lst = createList(START, END)
-    #  while True:
     for port in lst:
         if tryPort(port):
-            print(port)
-            exit()
-# app = FastAPI()
+            return port
+        
 
-
-# @app.get("/")
-# async def root():
-#     return {"message": "Hello World"}
+if __name__ == "__main__":
+    uvicorn.run(app, host=LOCAL_HOST, port=49154)
