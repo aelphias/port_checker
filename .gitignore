@@ -1,0 +1,5 @@
+log/port_checker.log
+__pycache__/
+__pycache__/*
+.venv/
+.venv/*
