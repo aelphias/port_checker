@@ -3,7 +3,7 @@ A utility to supply available port
 
 install:
 ```
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 to run

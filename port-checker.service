@@ -1,0 +1,17 @@
+[Unit]
+
+Description="gives 1 port at a time"
+After=network.target 
+
+[Service]
+Type=simple
+ExecStart=/home/aelphias/.pyenv/shims/python /opt/bin/port-checker.py
+User=root 
+Group=root 
+# Restart = never #on-failure # Restart when there are errors
+SyslogIdentifier=port_checker.log
+RestartSec=5
+TimeoutStartSec=infinity
+ 
+[Install]
+WantedBy=multi-user.target 

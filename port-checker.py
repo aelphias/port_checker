@@ -1,22 +1,22 @@
+#! /home/aelphias/.pyenv/shims/python
+# or  #!/bin/python3
 # port_checker - 
 # An app to give available port in range of 2 numbers
 #  TODO put test test2 with pytest
+#  TODO add date to log filename
 
 import socket
 import logging
-from pathlib import Path
 import uvicorn
 from fastapi import FastAPI
 
-#creating a new directory called pythondirectory
-Path("./log").mkdir(parents=True, exist_ok=True)
 
 LOCAL_HOST = "0.0.0.0"
-# TODO add date to log filename
-LOG_FILE_PATH = f'./log/port_checker.log'
+
+LOG_FILE_PATH = f'port_checker.log'
 START = 49152
-# END = 65535
-END = 49160
+END = 65535
+
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
                     filename=LOG_FILE_PATH,
