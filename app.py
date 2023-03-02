@@ -15,8 +15,7 @@ LOCAL_HOST = "0.0.0.0"
 # TODO add date to log filename
 LOG_FILE_PATH = f'./log/port_checker.log'
 START = 49152
-# END = 65535
-END = 49160
+END = 65535
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
                     filename=LOG_FILE_PATH,
