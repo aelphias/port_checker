@@ -1,5 +1,5 @@
-# code written with chatgpt
-# edited by aelphias
+*/ code written with chatgpt
+edited by aelphias */
 
 #include <stdio.h>
 #include <stdlib.h>
