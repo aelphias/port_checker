@@ -1,4 +1,5 @@
 # code written with chatgpt
+# edited by aelphias
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +12,7 @@
 #define HOST "localhost"
 #define PORT_FROM 10000
 #define PORT_TO 65000
+#define OWN_PORT 45678
 
 int find_available_port() {
     struct sockaddr_in addr;
@@ -64,7 +66,7 @@ int main(int argc, char *argv[]) {
     memset(&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
-    server_addr.sin_port = htons(8080);
+    server_addr.sin_port = htons(OWN_PORT);
     if (bind(server_sock, (struct sockaddr *)&server_addr,
              sizeof(server_addr)) < 0) {
         perror("bind");
